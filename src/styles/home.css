@@ -1,9 +1,0 @@
-.main{
-    margin: 15px;
-}
-.container {
-    display: flex;
-    flex-wrap: wrap ;
-    align-items: flex-start;
-    margin-bottom: 10px;
-  }
