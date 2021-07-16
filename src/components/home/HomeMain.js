@@ -5,14 +5,14 @@ function HomeMain() {
 
     const [courses, setCourses] = useState(null);
 
-    function getCourses() {
-        return fetch(`${process.env.REACT_APP_API_URL}/moodle/1/user/1003/courses`, {
+    function getCourses(userid) {
+        return fetch(`${process.env.REACT_APP_API_URL}/moodle/1/user/${userid}/courses`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         }).then(res => res.json()).then(res => res);
     }
 
-    useEffect(() => getCourses().then(res => setCourses(res)), []);
+    useEffect(() => getCourses(1003).then(res => setCourses(res)), []);
 
     let cards = courses == null ? <div className="loader"></div> : courses.map((el, index) => (
         <CourseCard key={index} course={el}></CourseCard>
